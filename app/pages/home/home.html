@@ -1,0 +1,37 @@
+<ion-navbar *navbar>
+  <button menuToggle>
+    <ion-icon name="menu"></ion-icon>
+  </button>
+  <ion-title>GitHub</ion-title>
+</ion-navbar>
+
+<ion-content class="home">
+    <ion-list inset>
+        <ion-item>
+            <ion-label>Search</ion-label>
+            <ion-input [(ngModel)]="query" type="text"></ion-input>
+        </ion-item>
+    </ion-list>
+    <div padding>
+        <button block (click)="search()">Search</button>
+    </div>
+    <ion-card *ngFor="let resource of resources">
+      <img [attr.src]=[resource.images[0].url]/>
+        <ion-card-content>
+          <ion-card-title>
+            {{ resource.name }}
+          </ion-card-title>
+        </ion-card-content>
+        <ion-item>
+        <button primary clear item-left>
+          <ion-icon name="play"></ion-icon>
+          <div>Play</div>
+        </button>
+        <button primary clear item-left>
+          <ion-icon name="share"></ion-icon>
+          <div>Share</div>
+        </button>
+      </ion-item>
+    </ion-card>
+
+</ion-content>
